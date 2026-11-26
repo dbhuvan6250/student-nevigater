@@ -1,62 +1,55 @@
-// ===================================
-// CIVIX - Student Portal
-// Karnataka Government Schemes
-// ===================================
+// ========================================
+// CIVIX - STUDENT SERVICES PORTAL
+// Government Schemes + Student Opportunities
+// ========================================
 
-// Government scheme information
+
+// ========================================
+// 1. KARNATAKA GOVERNMENT SCHEMES
+// ========================================
+
 const schemes = [
 
     {
-        name: "SSP Pre-Matric Scholarship",
-        category: "School Education",
+        name: "Karnataka State Scholarship Portal",
+        category: "Student Scholarship",
         description:
-            "Scholarship application services for eligible students studying before Class 10 through Karnataka's State Scholarship Portal.",
+            "Access pre-matric and post-matric scholarship services offered through Karnataka government departments.",
         eligibility:
-            "Eligibility depends on the department, category and current notification.",
-        link:
-            "https://ssp.karnataka.gov.in/"
-    },
-
-    {
-        name: "SSP Post-Matric Scholarship",
-        category: "Higher Education",
-        description:
-            "Scholarship services for eligible students pursuing post-matric education through Karnataka's State Scholarship Portal.",
-        eligibility:
-            "Check the applicable department scheme, course and income conditions.",
+            "Eligibility depends on the department, student category, course and current notification.",
         link:
             "https://ssp.postmatric.karnataka.gov.in/"
     },
 
     {
-        name: "Vidyasiri Food and Accommodation Scheme",
+        name: "Minority Welfare Scholarships",
+        category: "Minority Welfare",
+        description:
+            "Explore educational scholarships and assistance under Karnataka Minority Welfare Department.",
+        eligibility:
+            "Scheme-specific community, course and income conditions apply.",
+        link:
+            "https://minoritymitra.com/en"
+    },
+
+    {
+        name: "Vidyasiri Scheme",
         category: "Food and Accommodation",
         description:
-            "Educational support for eligible Backward Classes students pursuing post-matric courses who do not receive the specified hostel facilities.",
+            "Explore educational food and accommodation assistance under Karnataka Backward Classes Welfare programmes.",
         eligibility:
-            "Check the current Backward Classes Welfare Department notification.",
+            "Check the latest scheme notification for eligibility and application conditions.",
         link:
             "https://bcwd.karnataka.gov.in/"
     },
 
     {
-        name: "Minority Student Welfare Schemes",
-        category: "Minority Welfare",
-        description:
-            "Educational assistance and scholarship programmes for eligible students under the Minority Welfare Department.",
-        eligibility:
-            "Scheme-specific community, course and other conditions apply.",
-        link:
-            "https://kodagu.nic.in/en/minority-welfare-department/"
-    },
-
-    {
-        name: "Karnataka Labour Welfare Board Scholarship",
+        name: "Labour Welfare Educational Assistance",
         category: "Educational Assistance",
         description:
-            "Educational welfare assistance for eligible children and dependants of employees covered by the Labour Welfare Fund.",
+            "Explore educational assistance for eligible children of workers covered by Karnataka Labour Welfare Board schemes.",
         eligibility:
-            "Check the current Labour Welfare Board rules and application notification.",
+            "Check current board notifications and applicable worker and student conditions.",
         link:
             "https://klwbapps.karnataka.gov.in/"
     }
@@ -64,13 +57,163 @@ const schemes = [
 ];
 
 
-// ===================================
-// DISPLAY GOVERNMENT SCHEMES
-// ===================================
+// ========================================
+// 2. STUDENT OPPORTUNITIES
+// ========================================
+
+const opportunities = [
+
+    {
+        name: "AICTE National Internship Portal",
+        category: "Internships",
+        description:
+            "Explore internship opportunities from government organisations, companies and institutions through the AICTE portal.",
+        audience:
+            "Students from eligible colleges and educational backgrounds. Check individual internship requirements.",
+        link:
+            "https://internship.aicte-india.org/internships"
+    },
+
+    {
+        name: "National Career Service",
+        category: "Jobs and Careers",
+        description:
+            "Explore employment opportunities, career guidance and job-related services through the National Career Service.",
+        audience:
+            "Students, fresh graduates and job seekers.",
+        link:
+            "https://www.ncs.gov.in/"
+    },
+
+    {
+        name: "SWAYAM Online Courses",
+        category: "Online Courses",
+        description:
+            "Learn different subjects through online courses offered by recognised institutions.",
+        audience:
+            "School students, college students and lifelong learners.",
+        link:
+            "https://swayam.gov.in/"
+    },
+
+    {
+        name: "Skill India Digital Hub",
+        category: "Skill Development",
+        description:
+            "Explore skill development courses, training and learning opportunities.",
+        audience:
+            "Learners interested in improving their professional skills.",
+        link:
+            "https://www.skillindiadigital.gov.in/"
+    },
+
+    {
+        name: "AI and Machine Learning Learning Resources",
+        category: "Technology Skills",
+        description:
+            "Explore learning resources and technical training opportunities to develop AI and machine learning skills.",
+        audience:
+            "Students interested in artificial intelligence and technology.",
+        link:
+            "https://swayam.gov.in/"
+    },
+
+    {
+        name: "Programming and Web Development",
+        category: "Technical Skills",
+        description:
+            "Explore online learning opportunities in programming, software development and web technologies.",
+        audience:
+            "Beginners and students interested in computer science.",
+        link:
+            "https://swayam.gov.in/"
+    }
+
+];
+
+
+// ========================================
+// 3. COMMON CARD CREATION FUNCTION
+// ========================================
+
+function createCard(item, type) {
+
+    const card = document.createElement("div");
+
+    card.className = "card result-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = item.name;
+
+    const category = document.createElement("p");
+    category.textContent = "Category: " + item.category;
+
+    const description = document.createElement("p");
+    description.textContent = item.description;
+
+    const extra = document.createElement("p");
+
+    if (type === "scheme") {
+        extra.textContent = "Eligibility: " + item.eligibility;
+    } else {
+        extra.textContent = "Suitable for: " + item.audience;
+    }
+
+    const link = document.createElement("a");
+
+    link.href = item.link;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.className = "btn";
+    link.textContent = "Visit Official Portal";
+
+    card.appendChild(heading);
+    card.appendChild(category);
+    card.appendChild(description);
+    card.appendChild(extra);
+    card.appendChild(link);
+
+    return card;
+}
+
+
+// ========================================
+// 4. DISPLAY SCHEMES
+// ========================================
+
+function displaySchemes(data) {
+
+    const container =
+        document.getElementById("schemeContainer");
+
+    container.replaceChildren();
+
+    if (data.length === 0) {
+
+        container.textContent = "No schemes found. Try another search.";
+
+        return;
+    }
+
+    data.forEach(function(item) {
+
+        container.appendChild(createCard(item, "scheme"));
+
+    });
+
+}
+
+
+// ========================================
+// 5. OPEN GOVERNMENT SCHEMES
+// ========================================
 
 function showSchemes() {
 
-    const section = document.getElementById("scheme-list");
+    const section =
+        document.getElementById("scheme-list");
+
+    document.getElementById("opportunity-list").hidden = true;
 
     section.hidden = false;
 
@@ -85,68 +228,9 @@ function showSchemes() {
 }
 
 
-// ===================================
-// CREATE SCHEME CARDS
-// ===================================
-
-function displaySchemes(data) {
-
-    const container =
-        document.getElementById("schemeContainer");
-
-    container.innerHTML = "";
-
-    if (data.length === 0) {
-
-        container.innerHTML =
-            "<p>No schemes found. Try another search.</p>";
-
-        return;
-    }
-
-    data.forEach(function(scheme) {
-
-        const card = document.createElement("div");
-
-        card.className = "card scheme-card";
-
-        const heading = document.createElement("h3");
-        heading.textContent = scheme.name;
-
-        const category = document.createElement("p");
-        category.textContent = "Category: " + scheme.category;
-
-        const description = document.createElement("p");
-        description.textContent = scheme.description;
-
-        const eligibility = document.createElement("p");
-        eligibility.textContent =
-            "Eligibility: " + scheme.eligibility;
-
-        const link = document.createElement("a");
-
-        link.href = scheme.link;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.className = "btn";
-        link.textContent = "Visit Official Website";
-
-        card.appendChild(heading);
-        card.appendChild(category);
-        card.appendChild(description);
-        card.appendChild(eligibility);
-        card.appendChild(link);
-
-        container.appendChild(card);
-
-    });
-
-}
-
-
-// ===================================
-// SEARCH GOVERNMENT SCHEMES
-// ===================================
+// ========================================
+// 6. SEARCH GOVERNMENT SCHEMES
+// ========================================
 
 function filterSchemes() {
 
@@ -154,12 +238,12 @@ function filterSchemes() {
         document.getElementById("schemeSearch")
         .value.toLowerCase().trim();
 
-    const filtered = schemes.filter(function(scheme) {
+    const filtered = schemes.filter(function(item) {
 
         return (
-            scheme.name.toLowerCase().includes(search) ||
-            scheme.category.toLowerCase().includes(search) ||
-            scheme.description.toLowerCase().includes(search)
+            item.name.toLowerCase().includes(search) ||
+            item.category.toLowerCase().includes(search) ||
+            item.description.toLowerCase().includes(search)
         );
 
     });
@@ -169,9 +253,9 @@ function filterSchemes() {
 }
 
 
-// ===================================
-// CLOSE GOVERNMENT SCHEMES
-// ===================================
+// ========================================
+// 7. CLOSE GOVERNMENT SCHEMES
+// ========================================
 
 function closeSchemes() {
 
@@ -183,9 +267,101 @@ function closeSchemes() {
 }
 
 
-// ===================================
-// OTHER SERVICE MESSAGES
-// ===================================
+// ========================================
+// 8. DISPLAY OPPORTUNITIES
+// ========================================
+
+function displayOpportunities(data) {
+
+    const container =
+        document.getElementById("opportunityContainer");
+
+    container.replaceChildren();
+
+    if (data.length === 0) {
+
+        container.textContent =
+            "No opportunities found. Try another search.";
+
+        return;
+    }
+
+    data.forEach(function(item) {
+
+        container.appendChild(createCard(item, "opportunity"));
+
+    });
+
+}
+
+
+// ========================================
+// 9. OPEN STUDENT OPPORTUNITIES
+// ========================================
+
+function showOpportunities() {
+
+    const section =
+        document.getElementById("opportunity-list");
+
+    document.getElementById("scheme-list").hidden = true;
+
+    section.hidden = false;
+
+    document.getElementById("opportunitySearch").value = "";
+
+    displayOpportunities(opportunities);
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// ========================================
+// 10. SEARCH OPPORTUNITIES
+// ========================================
+
+function filterOpportunities() {
+
+    const search =
+        document.getElementById("opportunitySearch")
+        .value.toLowerCase().trim();
+
+    const filtered = opportunities.filter(function(item) {
+
+        return (
+            item.name.toLowerCase().includes(search) ||
+            item.category.toLowerCase().includes(search) ||
+            item.description.toLowerCase().includes(search) ||
+            item.audience.toLowerCase().includes(search)
+        );
+
+    });
+
+    displayOpportunities(filtered);
+
+}
+
+
+// ========================================
+// 11. CLOSE OPPORTUNITIES
+// ========================================
+
+function closeOpportunities() {
+
+    document.getElementById("opportunity-list").hidden = true;
+
+    document.getElementById("services")
+        .scrollIntoView({ behavior: "smooth" });
+
+}
+
+
+// ========================================
+// 12. OTHER SERVICE MESSAGES
+// ========================================
 
 function showMessage(service) {
 
@@ -198,8 +374,10 @@ function showMessage(service) {
 }
 
 
-// ===================================
-// WEBSITE LOADED
-// ===================================
+// ========================================
+// 13. WEBSITE LOADED
+// ========================================
 
 console.log("CIVIX Student Portal Loaded Successfully!");
+console.log("Government Schemes Loaded:", schemes.length);
+console.log("Student Opportunities Loaded:", opportunities.length);
