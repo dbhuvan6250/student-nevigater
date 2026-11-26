@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIVIX | Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">CIVIX</h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#schemes">Schemes</a></li>
+                <li><a href="#scholarships">Scholarships</a></li>
+                <li><a href="#opportunities">Opportunities</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to CIVIX</h1>
+
+        <h2>Your Student Services Portal</h2>
+
+        <p>
+            Discover government schemes, scholarships
+            and opportunities designed for students.
+        </p>
+
+        <a href="#schemes" class="btn">Explore Now</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Explore Student Services</h2>
+
+        <div class="container">
+
+            <div class="card" id="schemes">
+                <h3>Government Schemes</h3>
+                <p>
+                    Find useful government schemes
+                    available for eligible students.
+                </p>
+                <button onclick="showMessage('Government Schemes')">
+                    Explore
+                </button>
+            </div>
+
+            <div class="card" id="scholarships">
+                <h3>Scholarships</h3>
+                <p>
+                    Discover scholarship information
+                    and eligibility requirements.
+                </p>
+                <button onclick="showMessage('Scholarships')">
+                    Explore
+                </button>
+            </div>
+
+            <div class="card" id="opportunities">
+                <h3>Student Opportunities</h3>
+                <p>
+                    Explore internships, skill courses
+                    and educational opportunities.
+                </p>
+                <button onclick="showMessage('Opportunities')">
+                    Explore
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 CIVIX | Student Services Portal</p>
+        <p>Connecting Students with Opportunities</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
