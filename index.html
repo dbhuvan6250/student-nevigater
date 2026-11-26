@@ -6,6 +6,7 @@
     <title>CIVIX | Student Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
@@ -25,7 +26,6 @@
     <!-- Home Section -->
     <section id="home" class="hero">
         <h1>Welcome to CIVIX</h1>
-
         <h2>Your Student Services Portal</h2>
 
         <p>
@@ -33,64 +33,86 @@
             and opportunities designed for students.
         </p>
 
-        <a href="#schemes" class="btn">Explore Now</a>
+        <a href="#services" class="btn">Explore Now</a>
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section id="services" class="services">
+
         <h2>Explore Student Services</h2>
 
         <div class="container">
 
+            <!-- Government Schemes -->
             <div class="card" id="schemes">
                 <h3>Government Schemes</h3>
+
                 <p>
-                    Find useful government schemes
-                    available for eligible students.
+                    Find useful Karnataka government
+                    schemes available for eligible students.
                 </p>
-                <button onclick="showMessage(<!-- Government Schemes Section -->
-<section id="scheme-list" class="scheme-section" hidden>
-    <h2>Karnataka Government Schemes</h2>
-    <p>Explore government support programmes for students.</p>
 
-    <input
-        type="text"
-        id="schemeSearch"
-        placeholder="Search schemes..."
-        oninput="filterSchemes()"
-    >
-
-    <div id="schemeContainer" class="container"></div>
-
-    <button onclick="closeSchemes()">Back to Home</button>
-</section>)">
+                <button onclick="showSchemes()">
                     Explore
                 </button>
             </div>
 
+            <!-- Scholarships -->
             <div class="card" id="scholarships">
                 <h3>Scholarships</h3>
+
                 <p>
                     Discover scholarship information
                     and eligibility requirements.
                 </p>
+
                 <button onclick="showMessage('Scholarships')">
                     Explore
                 </button>
             </div>
 
+            <!-- Opportunities -->
             <div class="card" id="opportunities">
                 <h3>Student Opportunities</h3>
+
                 <p>
                     Explore internships, skill courses
                     and educational opportunities.
                 </p>
+
                 <button onclick="showMessage('Opportunities')">
                     Explore
                 </button>
             </div>
 
         </div>
+    </section>
+
+    <!-- Government Schemes Display -->
+    <section id="scheme-list" class="scheme-section" hidden>
+
+        <h2>Karnataka Government Schemes</h2>
+
+        <p>
+            Explore government educational assistance
+            and student welfare programmes.
+        </p>
+
+        <!-- Search Box -->
+        <input
+            type="text"
+            id="schemeSearch"
+            placeholder="Search schemes..."
+            oninput="filterSchemes()"
+        >
+
+        <!-- Scheme Cards -->
+        <div id="schemeContainer" class="container"></div>
+
+        <button onclick="closeSchemes()">
+            Back to Home
+        </button>
+
     </section>
 
     <!-- Footer -->
