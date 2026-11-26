@@ -3,62 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CIVIX | Student Portal</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- NAVIGATION -->
     <header>
         <nav class="navbar">
             <h2 class="logo">CIVIX</h2>
 
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#schemes">Schemes</a></li>
-                <li><a href="#scholarships">Scholarships</a></li>
                 <li><a href="#opportunities">Opportunities</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Home Section -->
+    <!-- HOME -->
     <section id="home" class="hero">
+
         <h1>Welcome to CIVIX</h1>
+
         <h2>Your Student Services Portal</h2>
 
         <p>
-            Discover government schemes, scholarships
-            and opportunities designed for students.
+            Discover government schemes, scholarships,
+            internships and learning opportunities.
         </p>
 
         <a href="#services" class="btn">Explore Now</a>
+
     </section>
 
-    <!-- Services Section -->
+    <!-- SERVICES -->
     <section id="services" class="services">
 
         <h2>Explore Student Services</h2>
 
         <div class="container">
 
-            <!-- Government Schemes -->
+            <!-- GOVERNMENT SCHEMES -->
             <div class="card" id="schemes">
+
                 <h3>Government Schemes</h3>
 
                 <p>
-                    Find useful Karnataka government
-                    schemes available for eligible students.
+                    Find Karnataka government schemes
+                    and educational assistance.
                 </p>
 
                 <button onclick="showSchemes()">
                     Explore
                 </button>
+
             </div>
 
-            <!-- Scholarships -->
+            <!-- SCHOLARSHIPS -->
             <div class="card" id="scholarships">
+
                 <h3>Scholarships</h3>
 
                 <p>
@@ -69,57 +77,91 @@
                 <button onclick="showMessage('Scholarships')">
                     Explore
                 </button>
+
             </div>
 
-            <!-- Opportunities -->
+            <!-- STUDENT OPPORTUNITIES -->
             <div class="card" id="opportunities">
+
                 <h3>Student Opportunities</h3>
 
                 <p>
-                    Explore internships, skill courses
-                    and educational opportunities.
+                    Explore internships, online courses,
+                    training and career resources.
                 </p>
 
-                <button onclick="showMessage('Opportunities')">
+                <button onclick="showOpportunities()">
                     Explore
                 </button>
+
             </div>
 
         </div>
+
     </section>
 
-    <!-- Government Schemes Display -->
-    <section id="scheme-list" class="scheme-section" hidden>
+
+    <!-- GOVERNMENT SCHEMES PAGE -->
+    <section id="scheme-list" class="content-section" hidden>
 
         <h2>Karnataka Government Schemes</h2>
 
         <p>
-            Explore government educational assistance
-            and student welfare programmes.
+            Explore educational assistance and
+            government welfare programmes.
         </p>
 
-        <!-- Search Box -->
         <input
             type="text"
             id="schemeSearch"
-            placeholder="Search schemes..."
+            placeholder="Search government schemes..."
             oninput="filterSchemes()"
         >
 
-        <!-- Scheme Cards -->
         <div id="schemeContainer" class="container"></div>
 
-        <button onclick="closeSchemes()">
+        <button class="back-button" onclick="closeSchemes()">
             Back to Home
         </button>
 
     </section>
 
-    <!-- Footer -->
+
+    <!-- STUDENT OPPORTUNITIES PAGE -->
+    <section id="opportunity-list" class="content-section" hidden>
+
+        <h2>Student Opportunities</h2>
+
+        <p>
+            Discover internships, courses, training
+            programmes and career opportunities.
+        </p>
+
+        <input
+            type="text"
+            id="opportunitySearch"
+            placeholder="Search internships, courses, jobs..."
+            oninput="filterOpportunities()"
+        >
+
+        <div id="opportunityContainer" class="container"></div>
+
+        <button class="back-button" onclick="closeOpportunities()">
+            Back to Home
+        </button>
+
+    </section>
+
+
+    <!-- FOOTER -->
     <footer>
+
         <p>© 2026 CIVIX | Student Services Portal</p>
+
         <p>Connecting Students with Opportunities</p>
+
     </footer>
+
 
     <script src="script.js"></script>
 
