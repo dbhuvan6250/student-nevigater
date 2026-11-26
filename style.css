@@ -55,15 +55,10 @@ header {
     color: #ffd166;
 }
 
-/* HOME SECTION */
+/* HOME */
 
 .hero {
-    background: linear-gradient(
-        135deg,
-        #173b67,
-        #3278b8
-    );
-
+    background: linear-gradient(135deg, #173b67, #3278b8);
     color: white;
     text-align: center;
     padding: 90px 20px;
@@ -133,7 +128,7 @@ button:hover {
     margin: auto;
 }
 
-/* CARDS */
+/* GENERAL CARDS */
 
 .card {
     background: white;
@@ -159,7 +154,7 @@ button:hover {
     color: #555;
 }
 
-/* RESULT SECTIONS */
+/* CONTENT SECTIONS */
 
 [hidden] {
     display: none !important;
@@ -183,9 +178,9 @@ button:hover {
     margin-bottom: 20px;
 }
 
-/* SEARCH BOX */
+/* SEARCH */
 
-.content-section input {
+.content-section > input {
     width: 85%;
     max-width: 550px;
     padding: 14px;
@@ -194,15 +189,16 @@ button:hover {
     border: 1px solid #bbb;
     border-radius: 8px;
     font-size: 16px;
-    outline: none;
 }
 
-.content-section input:focus {
+.content-section > input:focus,
+.form-group input:focus,
+.form-group select:focus {
     border-color: #1769aa;
-    box-shadow: 0 0 5px rgba(23,105,170,0.2);
+    outline: 2px solid rgba(23,105,170,0.12);
 }
 
-/* SCHEME AND OPPORTUNITY CARDS */
+/* RESULT CARDS */
 
 .result-card {
     text-align: left;
@@ -230,6 +226,131 @@ button:hover {
 .back-button {
     margin-top: 30px;
     background: #173b67;
+}
+
+/* RECOMMENDATION FORM */
+
+#studentForm {
+    max-width: 850px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.form-group {
+    background: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.form-group h3 {
+    color: #174b80;
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+.form-group > p {
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.form-group > label {
+    display: block;
+    font-weight: bold;
+    margin: 15px 0 7px;
+}
+
+.form-group > input,
+.form-group > select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    background: white;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.checkbox-grid label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: #f4f7fb;
+    padding: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.checkbox-grid input,
+.consent-group input {
+    width: 17px;
+    height: 17px;
+    accent-color: #1769aa;
+}
+
+.consent-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: normal;
+}
+
+.consent-group p {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 25px auto;
+    padding: 15px;
+    background: #1769aa;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* RECOMMENDATION RESULTS */
+
+#recommendationResults {
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+#recommendationResults h2 {
+    color: #173b67;
+    margin-bottom: 15px;
+}
+
+#recommendationResults > p {
+    margin: 15px;
+}
+
+.recommendation-heading {
+    color: #174b80;
+    margin: 30px 0 20px;
+    font-size: 23px;
+}
+
+.match-label {
+    color: #16804a !important;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.disclaimer {
+    background: #fff5dd;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
 /* FOOTER */
@@ -278,8 +399,16 @@ footer p {
         max-width: 380px;
     }
 
-    .content-section input {
+    .content-section > input {
         width: 95%;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        padding: 18px;
     }
 
 }
