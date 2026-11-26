@@ -48,7 +48,22 @@
                     Find useful government schemes
                     available for eligible students.
                 </p>
-                <button onclick="showMessage('Government Schemes')">
+                <button onclick="showMessage(<!-- Government Schemes Section -->
+<section id="scheme-list" class="scheme-section" hidden>
+    <h2>Karnataka Government Schemes</h2>
+    <p>Explore government support programmes for students.</p>
+
+    <input
+        type="text"
+        id="schemeSearch"
+        placeholder="Search schemes..."
+        oninput="filterSchemes()"
+    >
+
+    <div id="schemeContainer" class="container"></div>
+
+    <button onclick="closeSchemes()">Back to Home</button>
+</section>)">
                     Explore
                 </button>
             </div>
